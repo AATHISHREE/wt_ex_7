@@ -1,0 +1,619 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Green Garden Blog</title>
+
+    <!-- jQuery Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial;
+            margin: 0;
+            background-color: #eef7ee;
+            color: #333;
+        }
+
+        header {
+            background-color: darkgreen;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+        }
+
+        nav a:hover {
+            color: lightgreen;
+        }
+
+        section {
+            width: 85%;
+            margin: 30px auto;
+            padding: 25px;
+            background-color: white;
+            border-radius: 10px;
+        }
+
+        h2 {
+            color: darkgreen;
+            text-align: center;
+        }
+
+        input {
+            padding: 10px;
+            margin: 8px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 18px;
+            margin: 6px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: darkgreen;
+        }
+
+        .result {
+            color: darkgreen;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* Budget Planner */
+
+        .budget-input {
+            text-align: center;
+        }
+
+        .budget-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .budget-card {
+            width: 150px;
+            padding: 15px;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .seed {
+            background-color: #168b45;
+        }
+
+        .tools {
+            background-color: #1769aa;
+        }
+
+        .emergency {
+            background-color: #7040b5;
+        }
+
+        .saving {
+            background-color: #d63384;
+        }
+
+        /* Cake Shop */
+
+        .cake-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .cake {
+            background-color: #fff4e6;
+            padding: 15px;
+            width: 180px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .cake-icon {
+            font-size: 45px;
+        }
+
+        .cake input {
+            width: 80px;
+        }
+
+        /* Car Workshop */
+
+        .car-area {
+            background-color: #f0f0f0;
+            padding: 30px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .car {
+            position: relative;
+            width: 240px;
+            height: 120px;
+            margin: 20px auto;
+        }
+
+        .car-body {
+            position: absolute;
+            width: 220px;
+            height: 45px;
+            background-color: green;
+            left: 10px;
+            top: 40px;
+            border-radius: 10px 20px 5px 5px;
+        }
+
+        .car-top {
+            position: absolute;
+            width: 120px;
+            height: 40px;
+            background-color: green;
+            left: 55px;
+            top: 5px;
+            border-radius: 25px 25px 0 0;
+        }
+
+        .glass {
+            position: absolute;
+            width: 85px;
+            height: 30px;
+            background-color: lightblue;
+            left: 72px;
+            top: 10px;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .wheel {
+            position: absolute;
+            width: 35px;
+            height: 35px;
+            background-color: black;
+            border-radius: 50%;
+            top: 75px;
+        }
+
+        .wheel1 {
+            left: 35px;
+        }
+
+        .wheel2 {
+            right: 35px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+
+    <header>
+        <h1>🌿 Green Garden Blog</h1>
+        <p>Grow Plants. Grow Happiness.</p>
+    </header>
+
+    <!-- Navigation -->
+
+    <nav>
+        <a href="#addition">Calculator</a>
+        <a href="#budget">Budget</a>
+        <a href="#cake">Bakery</a>
+        <a href="#car">Workshop</a>
+    </nav>
+
+
+    <!-- 1. JQUERY ADDITION -->
+
+    <section id="addition">
+
+        <h2>1. Garden Calculator</h2>
+
+        <p style="text-align:center;">
+            Calculate the total number of plants.
+        </p>
+
+        <div style="text-align:center;">
+
+            <input type="number" id="num1"
+                placeholder="First Number">
+
+            <input type="number" id="num2"
+                placeholder="Second Number">
+
+            <br>
+
+            <button id="addBtn">Calculate Total</button>
+
+            <p class="result" id="addResult"></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- 2. BUDGET CALCULATOR -->
+
+    <section id="budget">
+
+        <h2>2. Garden Budget Planner</h2>
+
+        <p style="text-align:center;">
+            Plan your gardening expenses and savings.
+        </p>
+
+        <div class="budget-input">
+
+            <label>Total Amount:</label>
+
+            <input type="number" id="amount" value="15000">
+
+            <br>
+
+            <label>Seeds and Plants (%):</label>
+            <input type="number" id="seedPercent" value="50">
+
+            <label>Garden Tools (%):</label>
+            <input type="number" id="toolPercent" value="20">
+
+            <br>
+
+            <label>Emergency (%):</label>
+            <input type="number" id="emergencyPercent" value="20">
+
+            <label>Savings (%):</label>
+            <input type="number" id="savingPercent" value="10">
+
+            <br>
+
+            <button id="budgetBtn">Evaluate My Budget</button>
+
+            <p id="budgetMessage" class="result"></p>
+
+        </div>
+
+        <div class="budget-cards">
+
+            <div class="budget-card seed">
+                Seeds and Plants
+                <h3 id="seedResult">₹0</h3>
+            </div>
+
+            <div class="budget-card tools">
+                Garden Tools
+                <h3 id="toolResult">₹0</h3>
+            </div>
+
+            <div class="budget-card emergency">
+                Emergency
+                <h3 id="emergencyResult">₹0</h3>
+            </div>
+
+            <div class="budget-card saving">
+                Savings
+                <h3 id="savingResult">₹0</h3>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- 3. CAKE ORDER CALCULATOR -->
+
+    <section id="cake">
+
+        <h2>3. Garden Bakery - Cake Order</h2>
+
+        <p style="text-align:center;">
+            Celebrate your gardening moments with delicious cakes!
+        </p>
+
+        <div class="cake-list">
+
+            <div class="cake">
+                <div class="cake-icon">🎂</div>
+                <h3>Color Cake</h3>
+                <p>Price: ₹300</p>
+                <input type="number" id="colorQty" value="0" min="0">
+            </div>
+
+            <div class="cake">
+                <div class="cake-icon">🍰</div>
+                <h3>Fruit Cake</h3>
+                <p>Price: ₹300</p>
+                <input type="number" id="fruitQty" value="0" min="0">
+            </div>
+
+            <div class="cake">
+                <div class="cake-icon">🧁</div>
+                <h3>Milky Cake</h3>
+                <p>Price: ₹250</p>
+                <input type="number" id="milkyQty" value="0" min="0">
+            </div>
+
+            <div class="cake">
+                <div class="cake-icon">🍫</div>
+                <h3>Black Forest</h3>
+                <p>Price: ₹350</p>
+                <input type="number" id="blackQty" value="0" min="0">
+            </div>
+
+        </div>
+
+        <div style="text-align:center;">
+
+            <button id="cakeBtn">Place Order</button>
+
+            <h3 class="result" id="cakeTotal">
+                Total Price: ₹0
+            </h3>
+
+        </div>
+
+    </section>
+
+
+    <!-- 4. CAR BODY WORKSHOP -->
+
+    <section id="car">
+
+        <h2>4. Car Customization Workshop</h2>
+
+        <p style="text-align:center;">
+            Customize your car by changing its body colour,
+            glass tint and tyre size.
+        </p>
+
+        <div class="car-area">
+
+            <div class="car">
+
+                <div class="car-top"></div>
+
+                <div class="glass"></div>
+
+                <div class="car-body"></div>
+
+                <div class="wheel wheel1"></div>
+
+                <div class="wheel wheel2"></div>
+
+            </div>
+
+        </div>
+
+        <div style="text-align:center;">
+
+            <button id="redCar">Change Body Colour</button>
+
+            <button id="blueGlass">Change Glass Tint</button>
+
+            <button id="bigTyres">Increase Tyre Size</button>
+
+            <button id="smallTyres">Decrease Tyre Size</button>
+
+            <button id="resetCar">Reset</button>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <h3>🌿 Green Garden Blog</h3>
+
+        <p>Learn • Grow • Stay Green</p>
+
+    </footer>
+
+
+    <!-- JQUERY -->
+
+    <script>
+
+        $(document).ready(function() {
+
+
+            // 1. ADDITION
+
+            $("#addBtn").click(function() {
+
+                let num1 = parseFloat($("#num1").val());
+                let num2 = parseFloat($("#num2").val());
+
+                if (isNaN(num1) || isNaN(num2)) {
+                    $("#addResult").text("Enter both numbers.");
+                    return;
+                }
+
+                let sum = num1 + num2;
+
+                $("#addResult").text("Total Plants: " + sum);
+
+            });
+
+
+            // 2. GARDEN BUDGET CALCULATOR
+
+            $("#budgetBtn").click(function() {
+
+                let amount = parseFloat($("#amount").val());
+
+                let seed = parseFloat($("#seedPercent").val());
+                let tool = parseFloat($("#toolPercent").val());
+                let emergency = parseFloat($("#emergencyPercent").val());
+                let saving = parseFloat($("#savingPercent").val());
+
+                let total = seed + tool + emergency + saving;
+
+                if (
+                    !Number.isFinite(amount) ||
+                    !Number.isFinite(seed) ||
+                    !Number.isFinite(tool) ||
+                    !Number.isFinite(emergency) ||
+                    !Number.isFinite(saving) ||
+                    amount < 0 || seed < 0 || tool < 0 ||
+                    emergency < 0 || saving < 0
+                ) {
+                    alert("Enter valid non-negative values.");
+                    return;
+                }
+
+                if (total != 100) {
+                    alert("The total percentage must be 100%.");
+                    return;
+                }
+
+                $("#seedResult").text("₹" + (amount * seed / 100).toFixed(2));
+
+                $("#toolResult").text("₹" + (amount * tool / 100).toFixed(2));
+
+                $("#emergencyResult").text("₹" + (amount * emergency / 100).toFixed(2));
+
+                $("#savingResult").text("₹" + (amount * saving / 100).toFixed(2));
+
+                $("#budgetMessage").text("Your garden budget is calculated successfully!");
+
+            });
+
+
+            // 3. CAKE ORDER CALCULATOR
+
+            $("#cakeBtn").click(function() {
+
+                let color = Number($("#colorQty").val());
+                let fruit = Number($("#fruitQty").val());
+                let milky = Number($("#milkyQty").val());
+                let black = Number($("#blackQty").val());
+
+                if (
+                    !Number.isInteger(color) ||
+                    !Number.isInteger(fruit) ||
+                    !Number.isInteger(milky) ||
+                    !Number.isInteger(black) ||
+                    color < 0 || fruit < 0 ||
+                    milky < 0 || black < 0
+                ) {
+                    alert("Enter valid cake quantities.");
+                    return;
+                }
+
+                let total =
+                    (color * 300) +
+                    (fruit * 300) +
+                    (milky * 250) +
+                    (black * 350);
+
+                $("#cakeTotal").text("Total Price: ₹" + total);
+
+            });
+
+
+            // 4. CAR WORKSHOP
+
+            // Change car body colour
+
+            $("#redCar").click(function() {
+
+                $(".car-body, .car-top").css("background-color", "red");
+
+            });
+
+
+            // Change glass tint
+
+            $("#blueGlass").click(function() {
+
+                $(".glass").css("background-color", "blue");
+
+            });
+
+
+            // Increase tyre size
+
+            $("#bigTyres").click(function() {
+
+                $(".wheel").css({
+                    "width": "45px",
+                    "height": "45px"
+                });
+
+            });
+
+
+            // Decrease tyre size
+
+            $("#smallTyres").click(function() {
+
+                $(".wheel").css({
+                    "width": "25px",
+                    "height": "25px"
+                });
+
+            });
+
+
+            // Reset car
+
+            $("#resetCar").click(function() {
+
+                $(".car-body, .car-top").css("background-color", "green");
+
+                $(".glass").css("background-color", "lightblue");
+
+                $(".wheel").css({
+                    "width": "35px",
+                    "height": "35px"
+                });
+
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>
